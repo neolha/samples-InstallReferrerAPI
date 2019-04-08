@@ -1,5 +1,5 @@
 # Get ONE store Install Referrer
-ONE store Install Referrer API 샘플 어플리케이션
+ONE store Install Referrer API 샘플
 
 Introduction
 ----

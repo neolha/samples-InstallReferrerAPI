@@ -1,5 +1,5 @@
 # Get ONE store Install Referrer
-----
+---
 ONE store Install Referrer API 샘플 어플리케이션
 
 ### Introduction
@@ -11,7 +11,7 @@ ONE store Install Referrer API 샘플 어플리케이션
 
 서비스 패키지명, 서비스명, 서비스 액션명
 
-```{.java}
+```java
 String SERVICE_PACKAGE_NAME = "com.skt.skaf.A000Z00040";//TODO 통신사별로 달라짐.
 String SERVICE_NAME = "com.onestore.android.external.installreferrer.GetInstallReferrerService";
 String SERVICE_ACTION_NAME = "com.onestore.android.external.BIND_GET_INSTALL_REFERRER_SERVICE";
@@ -19,7 +19,7 @@ String SERVICE_ACTION_NAME = "com.onestore.android.external.BIND_GET_INSTALL_REF
 
 Service Binding
 
-```{.java}
+```java
 Intent serviceIntent = new Intent(SERVICE_ACTION_NAME);
 serviceIntent.setComponent(new ComponentName(SERVICE_PACKAGE_NAME, SERVICE_NAME));
 bindService(serviceIntent, mServiceConnection, Context.BIND_AUTO_CREATE);
@@ -27,7 +27,7 @@ bindService(serviceIntent, mServiceConnection, Context.BIND_AUTO_CREATE);
 
 Service Connection
 
-```{.java}
+```java
 private ServiceConnection mServiceConnection = new ServiceConnection() { 
     @Override 
     public void onServiceConnected(ComponentName name, IBinder iBinder) {

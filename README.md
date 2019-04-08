@@ -1,12 +1,11 @@
 # Get ONE store Install Referrer
----
 ONE store Install Referrer API 샘플 어플리케이션
 
-### Introduction
+Introduction
 ----
 이 샘플은 ONE store Install Referrer API를 사용하는 방법에 대한 가이드를 제공합니다. 
 
-### Getting Started
+Getting Started
 ----
 
 서비스 패키지명, 서비스명, 서비스 액션명

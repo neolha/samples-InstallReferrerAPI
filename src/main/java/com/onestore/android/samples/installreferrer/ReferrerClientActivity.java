@@ -9,14 +9,13 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import com.onestore.android.external.installreferrer.IGetInstallReferrerService;
 
 import java.util.List;
 
 public class ReferrerClientActivity extends AppCompatActivity {
-    private final static String TAG = "ReferrerClientActivity";
+
     /**
      * Service binder.
      */
@@ -40,9 +39,9 @@ public class ReferrerClientActivity extends AppCompatActivity {
             }
         }
         if (connectionResult) {
-            Log.i(TAG, "Service connected!");
+            //TODO
         } else {
-            Log.e(TAG, "Service not connected!");
+            //TODO
         }
     }
 
@@ -52,6 +51,7 @@ public class ReferrerClientActivity extends AppCompatActivity {
     private final static int NOT_ALLOWED = 2;
     private final static int BAD_REQUEST = 3;
     private final static int INVALID_PACKAGE_NAME = 4;
+
     /**
      * Service connection
      */
@@ -59,7 +59,7 @@ public class ReferrerClientActivity extends AppCompatActivity {
         @Override
         public void onServiceConnected(ComponentName name, IBinder iBinder) {
             mService = IGetInstallReferrerService.Stub.asInterface(iBinder);
-            Log.d(TAG, "onServiceConnected");
+            //TODO
             try {
                 Bundle bundle = new Bundle();
                 bundle.putString("package_name", getApplicationContext().getPackageName());
@@ -67,7 +67,6 @@ public class ReferrerClientActivity extends AppCompatActivity {
                 int resultCode = bundle.getInt("result_code", -10);
                 switch (resultCode) {
                     case SUCCESS:
-                        Log.d(TAG, "result code : " + SUCCESS);
                         String installReferrer = bundle.getString("install_referrer", "");
                         String onestorePid = bundle.getString("onestore_pid", "");
                         long referrerClickTimeStampSeconds = bundle.getLong("referrer_click_timestamp_seconds", -1);
@@ -75,23 +74,18 @@ public class ReferrerClientActivity extends AppCompatActivity {
                         //TODO
                         break;
                     case FAIL:
-                        Log.d(TAG, "result code : FAIL");
                         //TODO
                         break;
                     case NOT_FOUND:
-                        Log.d(TAG, "result code : NOT_FOUND");
                         //TODO
                         break;
                     case NOT_ALLOWED:
-                        Log.d(TAG, "result code : NOT_ALLOWED");
                         //TODO
                         break;
                     case BAD_REQUEST:
-                        Log.d(TAG, "result code : BAD_REQUEST");
                         //TODO
                         break;
                     case INVALID_PACKAGE_NAME:
-                        Log.d(TAG, "result code : INVALID_PACKAGE_NAME");
                         //TODO
                         break;
                 }
@@ -103,7 +97,7 @@ public class ReferrerClientActivity extends AppCompatActivity {
         @Override
         public void onServiceDisconnected(ComponentName name) {
             mService = null;
-            Log.d(TAG, "onServiceDisconnected");
+            //TODO
         }
     };
 }

@@ -36,6 +36,7 @@ public class ReferrerClientActivity extends AppCompatActivity {
             List<ResolveInfo> intentServices = getPackageManager().queryIntentServices(serviceIntent, 0);
             if (intentServices != null && !intentServices.isEmpty()) {
                 connectionResult = bindService(serviceIntent, mServiceConnection, Context.BIND_AUTO_CREATE);
+                break;
             }
         }
         if (connectionResult) {

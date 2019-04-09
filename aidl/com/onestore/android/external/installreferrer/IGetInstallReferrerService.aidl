@@ -3,7 +3,7 @@ package com.onestore.android.external.installreferrer;
 /**
  * An API to onestore install referrer.
  */
-interface IOnestoreGetInstallReferrerService {
+interface IGetInstallReferrerService {
      /**
       * onestore install referrer.
       *

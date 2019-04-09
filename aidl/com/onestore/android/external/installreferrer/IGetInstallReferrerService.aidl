@@ -16,9 +16,9 @@ interface IGetInstallReferrerService {
       *     key: "install_referrer" value: string
       *         The referrer url of the installed package
       *     key: "referrer_click_timestamp_seconds" value: long
-      *         The timestamp in milliseconds when referrer click happens
+      *         The timestamp in seconds when referrer click happens
       *     key: "install_begin_timestamp_seconds" value: long
-      *         The timestamp in milliseconds when installation begins
+      *         The timestamp in seconds when installation begins
       * </pre>
       */
       Bundle getInstallReferrer(in Bundle paramaters);

@@ -59,7 +59,6 @@ public class ReferrerClientActivity extends AppCompatActivity {
         @Override
         public void onServiceConnected(ComponentName name, IBinder iBinder) {
             mService = IGetInstallReferrerService.Stub.asInterface(iBinder);
-            //TODO
             try {
                 Bundle bundle = new Bundle();
                 bundle.putString("package_name", getApplicationContext().getPackageName());

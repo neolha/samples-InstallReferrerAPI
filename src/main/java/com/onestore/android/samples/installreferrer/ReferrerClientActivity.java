@@ -59,38 +59,8 @@ public class ReferrerClientActivity extends AppCompatActivity {
         @Override
         public void onServiceConnected(ComponentName name, IBinder iBinder) {
             mService = IGetInstallReferrerService.Stub.asInterface(iBinder);
-            try {
-                Bundle bundle = new Bundle();
-                bundle.putString("package_name", getApplicationContext().getPackageName());
-                bundle = mService.getInstallReferrer(bundle);
-                int resultCode = bundle.getInt("result_code", -10);
-                switch (resultCode) {
-                    case SUCCESS:
-                        String installReferrer = bundle.getString("install_referrer", "");
-                        String onestorePid = bundle.getString("onestore_pid", "");
-                        long referrerClickTimeStampSeconds = bundle.getLong("referrer_click_timestamp_seconds", -1);
-                        long installBeginTimeStampSeconds = bundle.getLong("install_begin_timestamp_seconds", -1);
-                        //TODO
-                        break;
-                    case FAIL:
-                        //TODO
-                        break;
-                    case NOT_FOUND:
-                        //TODO
-                        break;
-                    case NOT_ALLOWED:
-                        //TODO
-                        break;
-                    case BAD_REQUEST:
-                        //TODO
-                        break;
-                    case INVALID_PACKAGE_NAME:
-                        //TODO
-                        break;
-                }
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
+            qryReferrer();
+            
         }
 
         @Override
@@ -99,4 +69,49 @@ public class ReferrerClientActivity extends AppCompatActivity {
             //TODO
         }
     };
+    
+    
+    private void qryReferer(){
+        Bundle refererResponse
+        try {
+                refererResponse = mService.getInstallReferrer(getApplicationContext().getPackageName());
+ 
+
+  
+            } catch (RemoteException e) {
+                // todo.. 
+        }
+        
+        try{
+            mReferrerDetail = new ReferrerDetail( refererResponse );
+        }catch(){
+            
+         }catch(){
+            
+         }catch(){
+            
+            
+        }
+        
+        
+    }
+    
+    class ReferrerDetail(){
+        String installReferrer;
+        String onestorePid;
+        long referrerClickTimeStampSeconds;
+        long installBeginTimeStampSeconds;
+        ReferrerDetail(Bundle bundle) throws AExcetion, BExcetion, CExcetion,DExcetion..{
+            // parse bundle response
+            
+            
+               this.installReferrer = bundle.getString("install_referrer", "");
+               this.onestorePid = bundle.getString("onestore_pid", "");
+               this.referrerClickTimeStampSeconds = bundle.getLong("referrer_click_timestamp_seconds", -1);
+               this.installBeginTimeStampSeconds = bundle.getLong("install_begin_timestamp_seconds", -1);
+        }
+        
+    }
+    
+    
 }
